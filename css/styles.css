@@ -1,3 +1,9 @@
+:root {
+    --wood-dark: #3e2723;
+    --parchment: #f5f5dc;
+    --gold: #d4af37;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -28,50 +34,46 @@
     height: 100%;
 }
 
-.right-panel {
-    background-color: blue;
-}
-
 .scoreboard {
-    background-color: black;
     flex: 1; /* Take up remaining space */
 }
 
 .upgrades {
-    background-color: purple;
     flex: 1; /* Take up remaining space */
 }
 
 .cat {
     width: 330px;
     height: 330px;
-    filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 1.5));
+    filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 1));
+}
+
+#title,
+#cat-count,
+#cps {
+    font-family: "Jacquard 24", serif;
+    color: white;
+    text-align: center;
 }
 
 #title {
-    font-family: "Jacquard 24", serif;
-    color: white;
     font-size: 84px;
-    text-shadow: 0px 0px 15px rgba(0, 0, 0, 1.5);
-    text-align: center;
+    text-shadow: 0px 0px 15px rgba(0, 0, 0, 1);
     margin-bottom: 50px;
 }
 
-#cat-count {
-    font-family: "Jacquard 24", serif;
-    color: white;
-    font-size: 36px;
-    text-align: center;
+#cat-count,
+#cps {
     background-color: rgba(0, 0, 0, 0.75);
+}
+
+#cat-count {
+    font-size: 36px;
     margin-bottom: 5px;
 }
 
 #cps {
-    font-family: "Jacquard 24", serif;
-    color: white;
     font-size: 24px;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.75);
     margin-bottom: 50px;
 }
 
@@ -79,4 +81,86 @@
   display: block; /* Behave like a full-width block */
   width: 100%; /* Stretch across parent */
   padding: 8px 0; /* Give it vertical space */
+}
+
+
+.center-panel, .right-panel {
+    background-color: var(--wood-dark);
+    border-left: 10px ridge #5d4037;
+    display: flex;
+    flex-direction: column;
+}
+
+.section-frame {
+    background: var(--parchment);
+    margin: 15px;
+    padding: 20px;
+    border: 5px inset #8d6e63;
+    color: #2e1a1a;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+}
+
+.badge {
+    width: 60px;
+    height: 60px;
+    background: white;
+    border: 4px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin: 5px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+.hidden { display: none; }
+.upgrade-btn {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 12px;
+    background: #a1887f;
+    border: 3px outset #d7ccc8;
+    font-family: 'Jacquard 24', serif;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.upgrade-btn:hover:not(:disabled) { background: #8d6e63; color: white; }
+.upgrade-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+#congrats-overlay {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 215, 0, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    border: 3px solid black;
+    z-index: 100;
+}
+
+.modal-content {
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 30px;
+    border: 4px solid #333;
+    z-index: 200;
+}
+
+.rewards-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 15px;
+}
+
+#help-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 150;
 }

@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cat Clicker</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jacquard+12&family=Jacquard+24&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cat Clicker</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Jacquard+12&family=Jacquard+24&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./css/styles.css">
+        <script src="./script.js"></script>
 </head>
 <body>
     <main class="game-layout">
@@ -19,24 +20,49 @@
             
             <img src="images/cat.png" alt="Cat" class="cat" id="cat">
         </section>
-
+        
         <!-- Scoreboard & Upgrades Area -->
         <section class="center-panel">
-            <div class="scoreboard">
+            <div class="scoreboard section-frame">
+            <h2 class="panel-title">Stats</h2>
 
+            <p>Click Power: <span id="stat-click-val">1</span></p>
+            <p>Upgrades Owned: <span id="stat-upgrades-count">0</span></p>
+
+            <button id="help-btn" type="button">Help &amp; Instructions</button>
             </div>
 
-            <div class="upgrades">
-
+            <div class="upgrades section-frame">
+            <h2 class="panel-title">Store</h2>
+            <div id="upgrade-list"></div>
             </div>
         </section>
 
         <!-- Rewards Area -->
         <section class="right-panel">
+            <div class="section-frame">
+                <h2 class="panel-title">Rewards</h2>
 
+                <div id="rewards-display" class="rewards-grid"></div>
+
+                <div id="congrats-overlay" class="hidden">
+                    <h3>Achievement Unlocked!</h3>
+                    <p id="reward-name"></p>
+                </div>
+            </div>
         </section>
 
     </main>
-    <script src="script.js"></script>
+    <div id="help-modal" class="hidden" role="dialog" aria-modal="true" aria-labelledby="help-title">
+      <div class="modal-content">
+        <h2 id="help-title">How to Play</h2>
+        <p>Click the cat to earn cats. Spend cats in the Store to buy upgrades!</p>
+
+        <h3>Available Upgrades &amp; Rewards</h3>
+        <div id="help-content"></div>
+
+        <button id="close-help" type="button">Close</button>
+      </div>
+    </div>
 </body>
 </html>
